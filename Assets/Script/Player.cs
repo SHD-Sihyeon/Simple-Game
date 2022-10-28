@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +13,8 @@ public class Player : MonoBehaviour
     private float movePower = 1f;
     [SerializeField]
     private float maxJumpTime = 0.3f;
+    [SerializeField]
+    private GameObject GameOverUI;
     private float jumpTime = 0.0f;
     private bool ifJumping = false;
     private Rigidbody2D rigidBody;
@@ -40,6 +44,24 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         Move();
+    }
+    private void Awake()
+    {
+        GameOverUI.SetActive(false);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        GameObject gameObject = collision.gameObject;
+        if (gameObject.CompareTag("FailBox"))
+        {
+            Time.timeScale = 0f;
+            GameOverUI.SetActive(true);
+        }
+    }
+    public static void Restart()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     private void JumpStart()
     {
