@@ -46,6 +46,10 @@ public class Player : MonoBehaviour
         }
         time += Time.deltaTime;
         TimeText.text = ((int)time).ToString();
+        if (Input.GetAxisRaw("Horizontal") == 0)
+        {
+            animator.SetBool("ifRunning", false);
+        }
     }
     void FixedUpdate()
     {
@@ -88,6 +92,7 @@ public class Player : MonoBehaviour
     void Move()
     {
         Vector3 moveVelocity = Vector3.zero;
+        animator.SetBool("ifRunning", true);
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
             moveVelocity = Vector3.left;
