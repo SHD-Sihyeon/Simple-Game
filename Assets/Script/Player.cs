@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject GameOverUI;
     [SerializeField]
+    private GameObject GameClearUI;
+    [SerializeField]
     private TextMeshProUGUI TimeText;
     private float jumpTime = 0.0f;
     private bool ifJumping = false;
@@ -58,6 +60,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         GameOverUI.SetActive(false);
+        GameClearUI.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -67,11 +70,26 @@ public class Player : MonoBehaviour
             Time.timeScale = 0f;
             GameOverUI.SetActive(true);
         }
+        if (gameObject.CompareTag("EndPoint"))
+        {
+            Time.timeScale = 0f;
+            GameClearUI.SetActive(true);
+        }
     }
     public static void Restart()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public static void NextStage()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Stage2");
+    }
+    public static void GoHome()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Main");
     }
     private void JumpStart()
     {
