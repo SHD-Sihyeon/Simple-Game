@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -15,15 +16,19 @@ public class Player : MonoBehaviour
     private float maxJumpTime = 0.3f;
     [SerializeField]
     private GameObject GameOverUI;
+    [SerializeField]
+    private TextMeshProUGUI TimeText;
     private float jumpTime = 0.0f;
     private bool ifJumping = false;
     private Rigidbody2D rigidBody;
     private Animator animator;
     private Vector3 movement;
+    private float time;
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
+        time = 0;
     }
     void Update()
     {
@@ -39,7 +44,8 @@ public class Player : MonoBehaviour
         {
             JumpStart();
         }
-        Debug.Log(ifJumping);
+        time += Time.deltaTime;
+        TimeText.text = ((int)time).ToString();
     }
     void FixedUpdate()
     {
