@@ -716,7 +716,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 620375956}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
-        m_MethodName: NextStage
+        m_MethodName: NextStage2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6138,7 +6138,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 50}
-  m_SizeDelta: {x: 1000, y: 100}
+  m_SizeDelta: {x: 1200, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1836488822
 MonoBehaviour:
@@ -6160,7 +6160,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: GAME CLEAR!
+  m_text: Stage CLEAR!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dc7360f75d86a754d9f9ca76779bd036, type: 2}
   m_sharedMaterial: {fileID: 8721769457875577593, guid: dc7360f75d86a754d9f9ca76779bd036, type: 2}
