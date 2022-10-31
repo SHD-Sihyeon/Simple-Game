@@ -81,10 +81,15 @@ public class Player : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    public static void NextStage()
+    public static void NextStage2()
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene("Stage2");
+    }
+    public static void NextStage3()
+    {
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("Stage3");
     }
     public static void GoHome()
     {
